@@ -21,11 +21,11 @@ def get_sorted_char_counts(char_count_dict):
     char_list = []
     for char, count in char_count_dict.items():
         if char.isalpha():  # Only include alphabetical characters
-            char_list.append({"char": char, "num": count})
+            char_list.append({"char": char, "count": count})  # Changed to "count"
     
     # Define helper function for sorting
     def sort_by_count(dict_item):
-        return dict_item["num"]
+        return dict_item["count"]  # Changed to "count"
     
     # Sort from greatest to least
     char_list.sort(key=sort_by_count, reverse=True)
