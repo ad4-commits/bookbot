@@ -5,7 +5,7 @@ def get_book_text(filepath):
 
 def main():
     """Uses get_book_text to read and print the entire contents of frankenstein.txt"""
-    book_text = get_book_text('frankenstein.txt')
+    book_text = get_book_text('books/frankenstein.txt')
     print(book_text)
 
 # Call main at the bottom
