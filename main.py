@@ -1,3 +1,4 @@
+import sys
 from stats import get_num_words, get_character_counts, get_sorted_char_counts
 
 def get_book_text(filepath):
@@ -5,12 +6,17 @@ def get_book_text(filepath):
         return f.read()
 
 def main():
-    book_path = "books/frankenstein.txt"
+    # Check command line arguments
+    if len(sys.argv) != 2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    
+    book_path = sys.argv[1]  # Use the command line argument
     text = get_book_text(book_path)
     num_words = get_num_words(text)
     chars_dict = get_character_counts(text)
     
-    # Get sorted character counts - THIS IS THE KEY PART YOU'RE MISSING
+    # Get sorted character counts
     sorted_chars = get_sorted_char_counts(chars_dict)
     
     # Print report
@@ -20,7 +26,7 @@ def main():
     print(f"Found {num_words} total words")
     print("--------- Character Count -------")
     
-    # Print each character and count in sorted format
+    # Print each character and count
     for char_dict in sorted_chars:
         print(f"{char_dict['char']}: {char_dict['count']}")
     
